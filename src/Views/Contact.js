@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import Coin from '../Coin';
 
 
 
 function Contact(){
     const [coins, setCoins] = useState([]);
+    const [search, setSearch] = useState('')
 
   useEffect(() => {
     axios
@@ -20,17 +22,37 @@ function Contact(){
     }).catch(error => console.log('Error found'))
   }, []);
 
+  const handleChange = e => {
+
+    setSearch(e.target.value)
+  }
+
+  const filteredCoins = coins.filter(coin =>
+    coin.name.toLowerCase().includes(search.toLowerCase())
+  )
 
 
   return(
+
 
     <div className = 'coin-app'>
       <div className = 'coin-search font-bold'>
         <h1 className = 'coin-text'> Search a crypto currency</h1>
           <form>
-            <input type = 'text' placeholder = 'Search' className = 'coin-input' />
+            <input type = 'text' placeholder = 'Search' className = 'coin-input' onChange = {handleChange} />
         </form>
       </div>
+      {filteredCoins.map(coin => {
+        return (
+          <Coin
+             key = {coin.id}
+             name = {coin.name}
+             image = {coin.image}
+             volume = {coin.market_cap}
+             price = {coin.current_price}
+             />
+         );
+      })}
     </div>
 
   );
