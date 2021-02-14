@@ -10,6 +10,7 @@ import {
 import Footer from './Components/Footer'
 import Home from './Views/Home'
 import About from './Views/About'
+import Contact from './Views/Contact'
 
 
 function App() {
@@ -23,6 +24,9 @@ function App() {
               </Route>
               <Route path="/about">
               <About />
+              </Route>
+              <Route path="/contact">
+              <Contact />
               </Route>
             </Switch>
           <Footer/>
