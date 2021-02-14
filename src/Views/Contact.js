@@ -1,13 +1,39 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+
+
 
 function Contact(){
-  return(
-   <div>
-    <h1 className = "font-bold text-2xl text-center">Contact</h1>
-    <p class = "text-center"> just checking to see if this page works </p>
+    const [coins, setCoins] = useState([]);
 
-   </div>
-  )
+  useEffect(() => {
+    axios
+      .get(
+
+        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false'
+
+    )
+
+    .then(res => {
+                setCoins(res.data);
+
+    }).catch(error => console.log('Error found'))
+  }, []);
+
+
+
+  return(
+
+    <div className = 'coin-app'>
+      <div className = 'coin-search font-bold'>
+        <h1 className = 'coin-text'> Search a crypto currency</h1>
+          <form>
+            <input type = 'text' placeholder = 'Search' className = 'coin-input' />
+        </form>
+      </div>
+    </div>
+
+  );
 }
 
 export default Contact
