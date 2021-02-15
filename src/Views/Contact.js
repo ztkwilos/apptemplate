@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Coin from '../Coin';
+import '../Contact.css';
 
 
 
@@ -52,6 +53,7 @@ function Contact(){
              price = {coin.current_price}
              priceChange = {Math.round(coin.price_change_percentage_24h * 100) / 100}
              volume = {coin.total_volume}
+             symbol = {coin.symbol}
              />
          );
       })}
