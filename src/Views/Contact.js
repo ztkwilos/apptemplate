@@ -48,8 +48,10 @@ function Contact(){
              key = {coin.id}
              name = {coin.name}
              image = {coin.image}
-             volume = {coin.market_cap}
+             marketcap = {coin.market_cap}
              price = {coin.current_price}
+             priceChange = {Math.round(coin.price_change_percentage_24h * 100) / 100}
+             volume = {coin.total_volume}
              />
          );
       })}
