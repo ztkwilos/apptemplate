@@ -1,15 +1,21 @@
-import React from 'react'
-import HelloWorld from '../Components/HelloWorld'
+import React, {useState} from 'react'
+import Navbar from '../Components/NavBar'
+import Sidebar from '../Components/Sidebar'
 
-function Home(){
+const  Home = () => {
+  const[isOpen, setIsOpen] = useState(false)
+
+  const toggle = () => {
+    setIsOpen(!isOpen)
+  }
+
+  
   return(
-    <div>
-      <h1 className = "font-bold text-2xl mb-3">Home</h1>
+    <>
+      <Sidebar isOpen = {isOpen} toggle={toggle}/>
+      <Navbar toggle={toggle}/>
+    </>
+);
+};
 
-      <HelloWorld name = "sarajallllday" /> <p> Welcome and I hope youre having a lovley day</p>
-
-    </div>
-  )
-}
-
-export default Home
+export default Home;

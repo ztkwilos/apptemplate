@@ -11,17 +11,15 @@ import {
 import Home from './Views/Home'
 import About from './Views/About'
 import Contact from './Views/Contact'
-import Navbar from './Components/NavBar'
 
 
 
 function App() {
   return (
-      <div>
       <Router>
         {/*<Header/>*/}
-        <Navbar/>
-            <Switch>
+        <Home/>
+            {/*<Switch>
               <Route exact path="/">
               <Home />
               </Route>
@@ -31,10 +29,10 @@ function App() {
               <Route path="/contact">
               <Contact />
               </Route>
-            </Switch>
+            </Switch>*/}
 
       </Router>
-      </div>
+
   );
 }
 

@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
+
+/*
 *{
   box-sizing: border-box;
   margin: 0;
@@ -8,7 +10,7 @@
   background-color: #1a1a1c;
   color: #fff;
 }
-
+*/
 .coin-app {
   display: flex;
   flex-direction: column;
